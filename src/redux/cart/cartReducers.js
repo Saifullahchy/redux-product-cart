@@ -17,12 +17,7 @@ const createId = (state) => {
 const cartReducers = (state = initialState, action) => {
   switch (action.type) {
     case ADDTOCART:
-      let found = false;
-      for (let item of state) {
-        if (item.id === action.payload.id) {
-          found = true;
-        }
-      }
+      
       if (found === true) {
         return state.map((item) => {
           if (item.id === action.payload.id) {

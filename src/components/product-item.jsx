@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../redux/cart/actions";
+import { addToCart, cartIncrement } from "../redux/cart/actions";
 
 const ProductItem = ({
   productTitle,
@@ -13,6 +13,17 @@ const ProductItem = ({
   const dispatch = useDispatch();
 
   const addToCartBtn = () => {
+    let found = false;
+    for (let item of state) {
+        if (item.id === action.payload.id) {
+            found = true;
+        }
+    }
+
+    if(found){
+      return dispatch(cartIncrement(id));
+    }
+    
     dispatch(
       addToCart({
         productTitle,
