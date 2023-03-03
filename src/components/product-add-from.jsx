@@ -13,7 +13,6 @@ const AddProductFrom = () => {
     price: "",
     quantity: "",
   });
-  console.log(inputs);
 
   const onChangeHandler = (e) => {
     setInputs((prevState) => ({
