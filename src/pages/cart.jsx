@@ -8,6 +8,14 @@ const Cart = () => {
     return state?.cart;
   });
 
+  const total = data?.reduce((total, item) => {
+    return (
+      parseInt(total.price) + parseInt(item.quantity) * parseInt(item.price)
+    );
+  });
+
+  console.log(total);
+
   return (
     <main className="py-16">
       <div className="container 2xl:px-8 px-2 mx-auto">
@@ -29,7 +37,7 @@ const Cart = () => {
             })}
           </div>
           {/* Bill Details */}
-          <BillDetails />
+          <BillDetails total={total} />
         </div>
       </div>
     </main>
